@@ -95,3 +95,18 @@ API 接口文件；
 
 #### main.js
 入口文件，做配置等等；
+
+------------
+
+## 规范部分
+
+### scss
+一些 颜色、字号、尺寸 等尽量使用 `src/assets/styles/_variables.scss` 中的变量，没有的可以声明一个，在组件的 `style` 中 `import` `_variables` 即可；
+
+### javascript
+js 尽量使用 es6 的语法，项目中使用 `eslintrc` 作了代码规范，有 atom 插件的话会在编辑器提示，同时 webpack 有预编译功能，代码规范将回编译报错；
+
+工具函数从 `utils` 中获取，没有的可以加上；
+
+#### vue
+。。。
