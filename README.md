@@ -103,6 +103,8 @@ API 接口文件；
 ### scss
 一些 颜色、字号、尺寸 等尽量使用 `src/assets/styles/_variables.scss` 中的变量，没有的可以声明一个，在组件的 `style` 中 `import` `_variables` 即可；
 
+使用 `rem` 方案自适应移动端，所有尺寸需要使用 `px2em` 函数，比如：`width: px2em(22px);` (需要 `@import "../../../assets/styles/variables.scss";`)，直接把设计稿的尺寸除以 2 加上 `px` 传入即可，其他不用管；
+
 ### javascript
 js 尽量使用 es6 的语法，项目中使用 `eslintrc` 作了代码规范，有 atom 插件的话会在编辑器提示，同时 webpack 有预编译功能，代码规范将回编译报错；
 

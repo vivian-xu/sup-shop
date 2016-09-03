@@ -1,3 +1,14 @@
+/* px to em */
+@function px2em($px, $base-font-size: 13px) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2em($px + 0px); // That may fail.
+  } @else if (unit($px) == em) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1em;
+}
+
 /* 颜色 */
 /* 主色，高亮色，选中状态颜色 */
 $color-main: #44c1d8;
@@ -18,12 +29,12 @@ $color-disabled: #c8c8c8;
 
 /* 字号 */
 /* 首页的“您好！用户名称”，大尺寸价格 */
-$font-size-h1: 25px;
+$font-size-h1: px2em(25px);
 /* 详情页大标题 */
-$font-size-h2: 20px;
+$font-size-h2: px2em(20px);
 /* 一般组件标题 */
-$font-size-h3: 15px;
+$font-size-h3: px2em(15px);
 /* 大部分正文 */
-$font-size-text: 12px;
+$font-size-text: px2em(12px);
 /* 说明内容，icon 后缀文字 */
-$font-size-small: 10px;
+$font-size-small: px2em(10px);
