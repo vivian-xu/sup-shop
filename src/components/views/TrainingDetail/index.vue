@@ -1,13 +1,13 @@
 <template>
-  <div class="view-routes">
-    Routes
+  <div class="view-training-detail">
+    TrainingDetail
   </div>
 </template>
 
 <script>
   export default {
     attached () {
-      document.title = 'Routes';
+      document.title = 'TrainingDetail';
     }
   };
 </script>
@@ -15,8 +15,6 @@
 <style lang="scss" scoped>
   @import "../../../assets/styles/variables.scss";
 
-  .view-routes {
-    color: $color-main;
-    font-size: px2em(16px);
+  .view-training-detail {
   }
 </style>

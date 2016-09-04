@@ -7,7 +7,7 @@ router.get('/data', function (req, res) {
     code: 0,
     msg: 'ok',
     results: {
-      data: 'ok'
+      data: []
     }
   });
 });
