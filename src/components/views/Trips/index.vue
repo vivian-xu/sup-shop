@@ -1,6 +1,7 @@
 <template>
   <div class="view-trips">
     Trips
+    <span class="icon-训练"></span>
   </div>
 </template>
 
