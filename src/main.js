@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueTouch from 'vue-touch';
+import VueLazyload from 'vue-lazyload';
 import FastClick from 'fastclick';
 import App from './components/App';
 import { configRouter } from './routes';
@@ -22,6 +23,12 @@ Vue.config.devtools = true;
 // 微信调试
 // require('vconsole');
 // dev end
+
+// 图片懒加载
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  try: 2 // default 1
+});
 
 // 移动端点击事件
 Vue.use(VueTouch);

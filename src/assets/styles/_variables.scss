@@ -2,7 +2,7 @@
 @function px2rem($px, $base-font-size: 14px) {
   @if (unitless($px)) {
     @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
-    @return px2em($px + 0px); // That may fail.
+    @return px2rem($px + 0px); // That may fail.
   } @else if (unit($px) == rem) {
     @return $px;
   }
@@ -12,8 +12,9 @@
 /* 颜色 */
 /* 主色，高亮色，选中状态颜色 */
 $color-main: #44c1d8;
+$color-main-active: #16afcb;
 /* 背景色 */
-$color-bg: #fff;
+$color-bg: #eee;
 /* 价格标签色 */
 $color-price-tag: #ff5500;
 /* 一般文本颜色 */
@@ -26,15 +27,22 @@ $color-icon-second: #c8c8c8;
 $color-text-second: #c8c8c8;
 /* 不可选颜色 */
 $color-disabled: #c8c8c8;
+$color-line: #c8c8c8;
+/* 默认图片的背景色 */
+$color-img-bg-default: #a1e0eb;
+/* 失败图片的背景色 */
+$color-img-bg-error: #c8c8c8;
+/* 失败图片的字体色 */
+$color-img-text-error: #e4e4e4;
 
 /* 字号 */
 /* 首页的“您好！用户名称”，大尺寸价格 */
-$font-size-h1: px2em(25px);
+$font-size-h1: px2rem(25px);
 /* 详情页大标题 */
-$font-size-h2: px2em(20px);
+$font-size-h2: px2rem(20px);
 /* 一般组件标题 */
-$font-size-h3: px2em(15px);
+$font-size-h3: px2rem(15px);
 /* 大部分正文 */
-$font-size-text: px2em(12px);
+$font-size-text: px2rem(12px);
 /* 说明内容，icon 后缀文字 */
-$font-size-small: px2em(10px);
+$font-size-small: px2rem(10px);

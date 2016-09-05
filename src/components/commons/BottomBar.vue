@@ -57,7 +57,7 @@ export default {};
       bottom: 0;
       left: 0;
       background: #fff;
-      border-top: 1px solid $color-text-second;
+      border-top: 1px solid $color-line;
       li {
         float: left;
         width: 20%;
