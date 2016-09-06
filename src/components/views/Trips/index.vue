@@ -2,11 +2,17 @@
   <div class="view-trips">
     Trips
     <span class="icon-训练"></span>
+    <list-trip></list-trip>
   </div>
 </template>
 
 <script>
+  import ListTrip from '../../commons/ListTrip';
+
   export default {
+    components: {
+      ListTrip
+    },
     attached () {
       document.title = 'Trips';
     }
