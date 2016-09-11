@@ -1,13 +1,18 @@
 <template>
   <div class="view-notfound">
-    notfound
+    <view-status :status="'404'"></view-status>
   </div>
 </template>
 
 <script>
+  import ViewStatus from '../../commons/ViewStatus';
+
   export default {
+    components: {
+      ViewStatus
+    },
     attached () {
-      document.title = 'notfound';
+      document.title = '这里空空如也';
     }
   };
 </script>
@@ -16,5 +21,6 @@
   @import "../../../assets/styles/variables.scss";
 
   .view-notfound {
+    height: 100%;
   }
 </style>
