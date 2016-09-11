@@ -1,11 +1,16 @@
 <template>
   <div class="view-trip-detail">
-    TripDetail
+    <swiper></swiper>
   </div>
 </template>
 
 <script>
+  import Swiper from '../../commons/Swiper';
+
   export default {
+    components: {
+      Swiper
+    },
     attached () {
       document.title = 'TripDetail';
     }
