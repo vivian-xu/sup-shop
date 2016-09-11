@@ -1,17 +1,18 @@
 <template>
   <div class="view-trips">
-    Trips
-    <span class="icon-训练"></span>
+    <list-top-bar :title="'路线'"></list-top-bar>
     <list-trip></list-trip>
   </div>
 </template>
 
 <script>
   import ListTrip from '../../commons/ListTrip';
+  import ListTopBar from '../../commons/ListTopBar';
 
   export default {
     components: {
-      ListTrip
+      ListTrip,
+      ListTopBar
     },
     attached () {
       document.title = 'Trips';

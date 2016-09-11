@@ -1,16 +1,18 @@
 <template>
   <div class="view-trainings">
-    Trainings
-  <list-training></list-training>
+    <list-top-bar :title="'培训'"></list-top-bar>
+    <list-training></list-training>
   </div>
 </template>
 
 <script>
   import ListTraining from '../../commons/ListTraining';
+  import ListTopBar from '../../commons/ListTopBar';
 
   export default {
     components: {
-      ListTraining
+      ListTraining,
+      ListTopBar
     },
     attached () {
       document.title = 'Trainings';
