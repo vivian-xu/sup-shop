@@ -1,5 +1,5 @@
 <template>
-  <div class="item-card-training">
+  <div class="item-card-training" v-link="{ name: 'trainingDetail', params: { id: '11' } }">
     <div class="cover" v-lazy:background-image="'http://qiutc.me/img/qtdc_avatar.jpg'"></div>
     <div class="name">桨板瑜伽5日培训－巴厘岛</div>
     <div class="tag">

@@ -1,15 +1,15 @@
 <template>
   <div class="view-trip-detail">
-    <swiper></swiper>
+    <detail-header></detail-header>
   </div>
 </template>
 
 <script>
-  import Swiper from '../../commons/Swiper';
+  import DetailHeader from '../../commons/DetailHeader';
 
   export default {
     components: {
-      Swiper
+      DetailHeader
     },
     attached () {
       document.title = 'TripDetail';
@@ -21,7 +21,5 @@
   @import "../../../assets/styles/variables.scss";
 
   .view-trip-detail {
-    color: $color-main;
-    font-size: px2em(16px);
   }
 </style>

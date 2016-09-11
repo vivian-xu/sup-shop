@@ -1,11 +1,16 @@
 <template>
   <div class="view-equipment-detail">
-    EquipmentDetail
+    <detail-header></detail-header>
   </div>
 </template>
 
 <script>
+  import DetailHeader from '../../commons/DetailHeader';
+
   export default {
+    components: {
+      DetailHeader
+    },
     attached () {
       document.title = 'equipment-detail';
     }

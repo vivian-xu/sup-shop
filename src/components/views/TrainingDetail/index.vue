@@ -1,11 +1,16 @@
 <template>
   <div class="view-training-detail">
-    TrainingDetail
+    <detail-header></detail-header>
   </div>
 </template>
 
 <script>
+  import DetailHeader from '../../commons/DetailHeader';
+
   export default {
+    components: {
+      DetailHeader
+    },
     attached () {
       document.title = 'TrainingDetail';
     }

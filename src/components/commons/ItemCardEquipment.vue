@@ -1,5 +1,5 @@
 <template>
-  <div class="item-card-equipment">
+  <div class="item-card-equipment" v-link="{ name: 'equipmentDetail', params: { id: '11' } }">
     <div class="inner">
       <div class="cover" v-lazy:background-image="'http://qiutc.me/img/qtdc_avatar.jpg'"></div>
       <div class="box-info">

@@ -16,13 +16,14 @@
 
   export default {
     data () {
-      return {
-        imgs: [
-          'http://fakeimg.pl/2000x800/ff6a6f/fff/?text=EVENT',
-          'http://fakeimg.pl/2000x800/000000/fff/?text=EVENT',
-          'http://fakeimg.pl/2000x800/cccccc/fff/?text=EVENT'
-        ]
-      };
+      return {};
+    },
+    props: {
+      imgs: {
+        type: Array,
+        required: true,
+        default: []
+      }
     },
     components: {
       Swipe,
@@ -46,7 +47,7 @@
   .swiper {
     position: relative;
     width: 100%;
-    height: px2rem(250px);
+    height: 100%;
     .swipe {
       height: 100%;
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="item-card-trip">
+  <div class="item-card-trip" v-link="{ name: 'tripDetail', params: { id: '11' } }">
     <div class="cover" v-lazy:background-image="'http://qiutc.me/img/qtdc_avatar.jpg'"></div>
     <div class="name">菲律宾皮划艇体验</div>
     <div class="box-info clearfix">
