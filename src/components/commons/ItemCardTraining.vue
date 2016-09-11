@@ -77,7 +77,9 @@
       padding: px2rem(10px) 0 0 px2rem(10px);
       .icon {
         color: $color-price-tag;
-        font-size: px2rem(12px);
+        font-size: px2rem(16px);
+        position: relative;
+        top: px2rem(3px);
       }
       .text {
         display: inline-block;
