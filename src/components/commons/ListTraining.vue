@@ -22,6 +22,6 @@
 
  .list-training {
    width: 100%;
-   padding: 0 px2rem(10px);
+   padding: 0 px2rem(10px) 1px px2rem(10px);
  }
 </style>
