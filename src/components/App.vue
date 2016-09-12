@@ -41,6 +41,7 @@ export default {
   @import "../assets/styles/main";
   .view {
     position: relative;
+    background: $color-bg;
   }
   // .view-transition {
   //   transition: opacity .1s ease;
