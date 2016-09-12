@@ -56,6 +56,7 @@ export default {};
       height: px2rem(49px);
       bottom: 0;
       left: 0;
+      z-index: 9;
       background: #fff;
       border-top: 1px solid $color-line;
       li {

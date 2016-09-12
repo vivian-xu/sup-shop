@@ -1,17 +1,19 @@
 <template>
-  <div class="clearfix tooltip">
-    <span>装备</span>
-    <span class="filter-button" @click.prevent="showFilters">筛选<i class="icon-filter"></i></span>
-  </div>
-  <div class="filter-wrap" v-show="showFilter" @click.prevent="showFilters"></div>
-  <section id="filter" class="filter" :class="{'show': showFilter}">
-    <div v-for="filterItems in datas" class="item-filter">
-      <h2>{{filterItems.display}}</h2>
-      <ul  class="clearfix">
-        <li v-for="item in filterItems.choices" :class="{'active': $index==filterKey[filterItems.key]}" @click="addFilters(filterItems.key, item.id)" >{{item.display}}</li>
-      </ul>
+  <section id="filter" class="filter">
+    <div class="clearfix tooltip">
+      <span>装备</span>
+      <span class="filter-button" @click.prevent="showFilters">筛选<i class="icon-filter"></i></span>
     </div>
-    <div class="button-block">
+    <div class="filter-wrap" v-show="showFilter" @click.prevent="showFilters"></div>
+    <div class="items-block" :class="{'show': showFilter}">
+      <div v-for="filterItems in datas" class="item-filter">
+        <h2>{{filterItems.display}}</h2>
+        <ul  class="clearfix">
+          <li v-for="item in filterItems.choices" :class="{'active': $index==filterKey[filterItems.key]}" @click="addFilters(filterItems.key, item.id)" >{{item.display}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="button-block" :class="{'show': showFilter}">
       <button @click="resetFilter">重置</button>
       <button class="confirm" @click="postFilter" >确定</button>
     </div>
@@ -51,7 +53,80 @@
               {'id': 4, 'display': '四星'},
               {'id': 5, 'display': '五星'}
             ]
-          }]
+          },
+          {
+            'key': 'level',
+            'display': '难度系数',
+            'choices': [
+              {'id': 0, 'display': '不限'},
+              {'id': 1, 'display': '一星'},
+              {'id': 2, 'display': '二星'},
+              {'id': 3, 'display': '三星'},
+              {'id': 4, 'display': '四星'},
+              {'id': 5, 'display': '五星'}
+            ]
+          },
+          {
+            'key': 'level',
+            'display': '难度系数',
+            'choices': [
+              {'id': 0, 'display': '不限'},
+              {'id': 1, 'display': '一星'},
+              {'id': 2, 'display': '二星'},
+              {'id': 3, 'display': '三星'},
+              {'id': 4, 'display': '四星'},
+              {'id': 5, 'display': '五星'}
+            ]
+          },
+          {
+            'key': 'level',
+            'display': '难度系数',
+            'choices': [
+              {'id': 0, 'display': '不限'},
+              {'id': 1, 'display': '一星'},
+              {'id': 2, 'display': '二星'},
+              {'id': 3, 'display': '三星'},
+              {'id': 4, 'display': '四星'},
+              {'id': 5, 'display': '五星'}
+            ]
+          },
+          {
+            'key': 'level',
+            'display': '难度系数',
+            'choices': [
+              {'id': 0, 'display': '不限'},
+              {'id': 1, 'display': '一星'},
+              {'id': 2, 'display': '二星'},
+              {'id': 3, 'display': '三星'},
+              {'id': 4, 'display': '四星'},
+              {'id': 5, 'display': '五星'}
+            ]
+          },
+          {
+            'key': 'level',
+            'display': '难度系数',
+            'choices': [
+              {'id': 0, 'display': '不限'},
+              {'id': 1, 'display': '一星'},
+              {'id': 2, 'display': '二星'},
+              {'id': 3, 'display': '三星'},
+              {'id': 4, 'display': '四星'},
+              {'id': 5, 'display': '五星'}
+            ]
+          },
+          {
+            'key': 'level',
+            'display': '难度系数',
+            'choices': [
+              {'id': 0, 'display': '不限'},
+              {'id': 1, 'display': '一星'},
+              {'id': 2, 'display': '二星'},
+              {'id': 3, 'display': '三星'},
+              {'id': 4, 'display': '四星'},
+              {'id': 5, 'display': '五星'}
+            ]
+          }
+          ]
       };
     },
 
@@ -134,6 +209,7 @@
   @import "../../assets/styles/variables.scss";
 
   .tooltip {
+    height: px2rem( 35px );
     padding: px2rem( 10px );
     color: $color-text;
     font-size: $font-size-h3;
@@ -158,51 +234,56 @@
     z-index: 5;
   }
 
-  .filter {
+  .items-block,
+  .button-block {
     position: fixed;
-    top: 0;
     right: px2rem( -336px );
-    bottom: 0;
-    z-index: 9;
     width: px2rem( 336px );
-    background-color: $color-bg;
-
     transition: all .3s ease;
 
     &.show {
       transform: translateX( px2rem( -336px ) );
     }
+  }
 
-    .button-block {
-      position: absolute;
-      bottom: px2rem( 48px );
-      width: 100%;
-      color: $color-text;
-      font-size: 0;
+  .items-block {
+    top: 0;
+    right: px2rem( -336px );
+    bottom: px2rem( 48px );
+    z-index: 9;
+    // button-block 高度 -1 (border)
+    padding-bottom: px2rem( 43px );
+    overflow: auto;
+    background-color: $color-bg;
+  }
+  .button-block {
+    bottom: px2rem( 48px );
+    z-index: 10;
+    color: $color-text;
+    font-size: 0;
 
-      button {
-        display: inline-block;
-        width: 50%;
-        height: px2rem( 44px );
-        font-size: $font-size-btn;
+    button {
+      display: inline-block;
+      width: 50%;
+      height: px2rem( 44px );
+      font-size: $font-size-btn;
 
-        border: 0;
-        outline:none;
-        -webkit-appearance: none;
+      border: 0;
+      outline:none;
+      -webkit-appearance: none;
 
-        background-color: $color-bg;
-        border-top: 1px solid #c8c8c8;
+      background-color: $color-bg;
+      border-top: 1px solid #c8c8c8;
 
-        &.confirm {
-          color: #fff;
-          background-color: $color-main;
-        }
+      &.confirm {
+        color: #fff;
+        background-color: $color-main;
       }
     }
   }
 
   .item-filter {
-    margin: 0 px2rem( 20px );
+    margin: 0 px2rem( 10px );
     border-bottom: 1px solid #c8c8c8;
 
     h2 {
@@ -215,6 +296,7 @@
       min-width: 25%;
       margin: px2rem( 10px ) 0;
       font-size: px2rem( 10px );
+      line-height: 1;
 
       &.active {
         color: $color-main;
