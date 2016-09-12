@@ -9,13 +9,13 @@
       <div v-for="filterItems in datas" class="item-filter">
         <h2>{{filterItems.display}}</h2>
         <ul  class="clearfix">
-          <li v-for="item in filterItems.choices" :class="{'active': $index==filterKey[filterItems.key]}" @click="addFilters(filterItems.key, item.id)" >{{item.display}}</li>
+          <li v-for="item in filterItems.choices" :class="{'active': $index==filterKey[filterItems.key]}" @click='addFilters(filterItems.key, item.id)'  >{{item.display}}</li>
         </ul>
       </div>
     </div>
     <div class="button-block" :class="{'show': showFilter}">
-      <button @click="resetFilter">重置</button>
-      <button class="confirm" @click="postFilter" >确定</button>
+      <button @click="resetFilter" :disabled="posted">重置</button>
+      <button class="confirm" @click="postFilter" :disabled="posted">确定</button>
     </div>
   </section>
 </template>
@@ -31,6 +31,8 @@
         filterKey: {},
           // 'Category': 0,
           // 'level': 0
+          //  筛选提交情况
+        posted: false,
         datas:
           [{
             'key': 'Category',
@@ -168,7 +170,9 @@
       },
 
       addFilters (key, value) {
-        this.filterKey[key] = value;
+        if (!this.posted) {
+          this.filterKey[key] = value;
+        }
       },
 
       resetFilter () {
@@ -181,6 +185,7 @@
 
       // 确定筛选选项，若每一项都是 0 则 to -> /{name}
       // 否则 to -> /{name}?{query}
+      // 数据请求在主页上请求
       postFilter () {
         let filterDefalut = true;
         for (var key in this.filterKey) {
@@ -199,8 +204,11 @@
             query: this.filterKey
           });
         };
+        this.posted = true;
+        setTimeout(() => {
+          this.showFilter = false;
+        }, 3000);
       }
-
     }
   };
 </script>
@@ -238,6 +246,7 @@
   .button-block {
     position: fixed;
     right: px2rem( -336px );
+    bottom: px2rem( 48px + 1px );
     width: px2rem( 336px );
     transition: all .3s ease;
 
@@ -249,15 +258,14 @@
   .items-block {
     top: 0;
     right: px2rem( -336px );
-    bottom: px2rem( 48px );
     z-index: 9;
     // button-block 高度 -1 (border)
     padding-bottom: px2rem( 43px );
     overflow: auto;
     background-color: #fff;
   }
+
   .button-block {
-    bottom: px2rem( 48px );
     z-index: 10;
     color: $color-text;
     font-size: 0;
