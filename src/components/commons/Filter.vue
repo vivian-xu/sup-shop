@@ -254,7 +254,7 @@
     // button-block 高度 -1 (border)
     padding-bottom: px2rem( 43px );
     overflow: auto;
-    background-color: $color-bg;
+    background-color: #fff;
   }
   .button-block {
     bottom: px2rem( 48px );
@@ -272,7 +272,7 @@
       outline:none;
       -webkit-appearance: none;
 
-      background-color: $color-bg;
+      background-color: #fff;
       border-top: 1px solid #c8c8c8;
 
       &.confirm {
