@@ -15,6 +15,8 @@ $color-main: #44c1d8;
 $color-main-active: #16afcb;
 /* 背景色 */
 $color-bg: #eee;
+/* 遮罩层背景色 */
+$color-bg-wrap: rgba( 0, 0, 0, .6 );
 /* 价格标签色 */
 $color-price-tag: #ff5500;
 /* 一般文本颜色 */
@@ -42,6 +44,8 @@ $font-size-h1: px2rem(25px);
 $font-size-h2: px2rem(20px);
 /* 一般组件标题 */
 $font-size-h3: px2rem(15px);
+/* 部分按钮 */
+$font-size-btn: px2rem(15px);
 /* 大部分正文 */
 $font-size-text: px2rem(12px);
 /* 说明内容，icon 后缀文字 */
