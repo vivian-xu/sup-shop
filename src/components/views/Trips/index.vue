@@ -1,16 +1,19 @@
 <template>
   <div class="view-trips">
+    <list-header></list-header>
     <list-top-bar :title="'路线'"></list-top-bar>
     <list-trip></list-trip>
   </div>
 </template>
 
 <script>
+  import ListHeader from '../../commons/ListHeader';
   import ListTrip from '../../commons/ListTrip';
   import ListTopBar from '../../commons/ListTopBar';
 
   export default {
     components: {
+      ListHeader,
       ListTrip,
       ListTopBar
     },
@@ -24,7 +27,5 @@
   @import "../../../assets/styles/variables.scss";
 
   .view-trips {
-    color: $color-main;
-    font-size: px2em(16px);
   }
 </style>
