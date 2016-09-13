@@ -5,7 +5,7 @@
       <span class="filter-button" @click.prevent="showFilters">筛选<i class="icon-filter"></i></span>
     </div>
     <div class="filter-wrap" v-show="showFilter" @click.prevent="showFilters"></div>
-    <div class="items-block" :class="{'show': showFilter}">
+    <div class="items-block" v-if="showFilter" transition="show-filter">
       <div v-for="filterItems in datas" class="item-filter">
         <h2>{{filterItems.display}}</h2>
         <ul  class="clearfix">
@@ -13,7 +13,7 @@
         </ul>
       </div>
     </div>
-    <div class="button-block" :class="{'show': showFilter}">
+    <div class="button-block" v-if="showFilter" transition="show-filter">
       <button @click="resetFilter" :disabled="posted">重置</button>
       <button class="confirm" @click="postFilter" :disabled="posted">确定</button>
     </div>
@@ -190,9 +190,9 @@
           });
         };
         this.posted = true;
-        setTimeout(() => {
+        this.$nextTick(() => {
           this.showFilter = false;
-        }, 3000);
+        });
       }
     }
   };
@@ -200,6 +200,17 @@
 
 <style lang="scss" scoped >
   @import "../../assets/styles/variables.scss";
+
+  .show-filter-transition {
+    right: px2rem( -336px );
+    transition: all .3s ease;
+    transform: translateX( px2rem( -336px ) );
+  }
+
+  .show-filter-enter,
+  .show-filter-leave {
+    transform: translateX(0);
+  }
 
   .tooltip {
     height: px2rem( 35px );
@@ -230,19 +241,12 @@
   .items-block,
   .button-block {
     position: fixed;
-    right: px2rem( -336px );
     bottom: px2rem( 48px + 1px );
     width: px2rem( 336px );
-    transition: all .3s ease;
-
-    &.show {
-      transform: translateX( px2rem( -336px ) );
-    }
   }
 
   .items-block {
     top: 0;
-    right: px2rem( -336px );
     z-index: 9;
     // button-block 高度 -1 (border)
     padding-bottom: px2rem( 43px );
