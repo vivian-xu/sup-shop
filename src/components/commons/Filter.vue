@@ -23,130 +23,49 @@
 <script>
   export default {
     replace: true,
-    // props: ['showFilter', filterKey, datas],
+    props: {
+      filterKey: {
+        type: Object,
+        required: true,
+        default: function () {
+          if (Object.keys(this.$route.query).length === 0) {
+            return {};
+          } else {
+            return this.$route.query;
+          }
+        }
+      },
+      datas: {
+        type: Array,
+        required: true,
+        default: () => {
+          return [{
+            'key': 'Category',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          }]; }
+      },
+      topic: {
+        type: String,
+        required: true,
+        default: function () {
+          return this.$route.name;
+        }
+      }
+    },
+
     data () {
       console.log('data');
       return {
         showFilter: false,
-        topic: this.$route.name,
-        filterKey: {},
-          // 'Category': 0,
-          // 'level': 0
-          //  筛选提交情况
-        posted: false,
-        datas:
-          [{
-            'key': 'Category',
-            'display': '线路类型',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': 'kayak独木舟'},
-              {'id': 2, 'display': 'canoe划艇'},
-              {'id': 3, 'display': 'sup桨板'}
-            ]
-          },
-          {
-            'key': 'level',
-            'display': '难度系数',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': '一星'},
-              {'id': 2, 'display': '二星'},
-              {'id': 3, 'display': '三星'},
-              {'id': 4, 'display': '四星'},
-              {'id': 5, 'display': '五星'}
-            ]
-          },
-          {
-            'key': 'level',
-            'display': '难度系数',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': '一星'},
-              {'id': 2, 'display': '二星'},
-              {'id': 3, 'display': '三星'},
-              {'id': 4, 'display': '四星'},
-              {'id': 5, 'display': '五星'}
-            ]
-          },
-          {
-            'key': 'level',
-            'display': '难度系数',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': '一星'},
-              {'id': 2, 'display': '二星'},
-              {'id': 3, 'display': '三星'},
-              {'id': 4, 'display': '四星'},
-              {'id': 5, 'display': '五星'}
-            ]
-          },
-          {
-            'key': 'level',
-            'display': '难度系数',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': '一星'},
-              {'id': 2, 'display': '二星'},
-              {'id': 3, 'display': '三星'},
-              {'id': 4, 'display': '四星'},
-              {'id': 5, 'display': '五星'}
-            ]
-          },
-          {
-            'key': 'level',
-            'display': '难度系数',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': '一星'},
-              {'id': 2, 'display': '二星'},
-              {'id': 3, 'display': '三星'},
-              {'id': 4, 'display': '四星'},
-              {'id': 5, 'display': '五星'}
-            ]
-          },
-          {
-            'key': 'level',
-            'display': '难度系数',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': '一星'},
-              {'id': 2, 'display': '二星'},
-              {'id': 3, 'display': '三星'},
-              {'id': 4, 'display': '四星'},
-              {'id': 5, 'display': '五星'}
-            ]
-          },
-          {
-            'key': 'level',
-            'display': '难度系数',
-            'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': '一星'},
-              {'id': 2, 'display': '二星'},
-              {'id': 3, 'display': '三星'},
-              {'id': 4, 'display': '四星'},
-              {'id': 5, 'display': '五星'}
-            ]
-          }
-          ]
+        //  筛选提交情况
+        posted: false
       };
-    },
-
-    // 设置 filterKey, 若 route.query 没有的话，设置每一项默认值都为 0
-    activate: function (done) {
-      console.log('activate function');
-      let temp = {};
-      if (Object.keys(this.$route.query).length === 0) {
-        for (var data of this.datas) {
-          let {key} = data;
-          temp[key] = 0;
-        };
-      } else {
-        temp = this.$route.query;
-      }
-      this.filterKey = temp;
-      done();
     },
 
     methods: {
