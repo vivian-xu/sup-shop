@@ -7,6 +7,7 @@ import App from './components/App';
 import { configRouter } from './routes';
 import { configResource } from './resource';
 // import { lstorage } from './utils';
+import { infiniteScroll } from './utils';
 
 // 储存全局变量
 window.store = {};
@@ -23,6 +24,9 @@ Vue.config.devtools = true;
 // 微信调试
 // require('vconsole');
 // dev end
+
+// 滚动响应
+Vue.use(infiniteScroll);
 
 // 图片懒加载
 Vue.use(VueLazyload, {
