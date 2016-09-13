@@ -15,7 +15,6 @@
     attached () {
       document.title = 'cart';
     }
-
   };
 </script>
 
