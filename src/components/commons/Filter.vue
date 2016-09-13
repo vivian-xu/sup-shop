@@ -25,6 +25,7 @@
     replace: true,
     // props: ['showFilter', filterKey, datas],
     data () {
+      console.log('data');
       return {
         showFilter: false,
         topic: this.$route.name,
@@ -130,22 +131,6 @@
           }
           ]
       };
-    },
-
-    computed: {
-      comp: {
-        get: function () {
-          console.log('computed get!');
-          let temp = {};
-          return temp;
-        }
-      }
-    },
-
-    route: {
-      data: ({from}) => {
-        console.log('route Data start');
-      }
     },
 
     // 设置 filterKey, 若 route.query 没有的话，设置每一项默认值都为 0
@@ -286,6 +271,10 @@
       &.confirm {
         color: #fff;
         background-color: $color-main;
+
+        &:active {
+          background-color: $color-main-active;
+        }
       }
     }
   }
