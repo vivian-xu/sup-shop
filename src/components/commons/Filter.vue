@@ -24,10 +24,14 @@
   export default {
     replace: true,
     props: {
+      callback: {
+        type: Function
+      },
       filterKey: {
         type: Object,
         required: true,
         default: function () {
+          console.log('filterKey');
           if (Object.keys(this.$route.query).length === 0) {
             return {};
           } else {
@@ -60,7 +64,6 @@
     },
 
     data () {
-      console.log('data');
       return {
         showFilter: false,
         //  筛选提交情况
@@ -69,18 +72,15 @@
     },
 
     // 设置 filterKey, 若 route.query 没有的话，设置每一项默认值都为 0
-    activate: function (done) {
-      console.log('activate function');
-      console.log(Object.keys(this.filterKey).length);
+    created () {
       let temp = {};
       if (Object.keys(this.filterKey).length === 0) {
         for (var data of this.datas) {
           let {key} = data;
           temp[key] = 0;
         };
+        this.filterKey = temp;
       };
-      this.filterKey = temp;
-      done();
     },
 
     methods: {
@@ -106,23 +106,7 @@
       // 否则 to -> /{name}?{query}
       // 数据请求在主页上请求
       postFilter () {
-        let filterDefalut = true;
-        for (var key in this.filterKey) {
-          if (this.filterKey.hasOwnProperty(key) && this.filterKey[key] !== 0) {
-            filterDefalut = false;
-            break;
-          };
-        };
-        if (filterDefalut) {
-          this.$route.router.go({
-            name: this.topic
-          });
-        } else {
-          this.$route.router.go({
-            name: this.topic,
-            query: this.filterKey
-          });
-        };
+        this.callback && this.callback(this.filterKey);
         this.posted = true;
         this.$nextTick(() => {
           this.showFilter = false;
