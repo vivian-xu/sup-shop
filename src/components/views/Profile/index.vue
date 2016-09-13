@@ -8,7 +8,7 @@
       <h3 class="title">我的收藏</h3>
       <ul>
         <li>
-          <a v-link="#">
+          <a v-link="{ name: 'collections' }">
             <div class="text">路线</div>
             <div class="dot-tip"></div>
             <div class="icon icon-unflod"></div>
@@ -16,14 +16,14 @@
           </a>
         </li>
         <li>
-          <a v-link="#">
+          <a v-link="{ name: 'collections' }">
             <div class="text">装备</div>
             <div class="icon icon-unflod"></div>
             <div class="num">11</div>
           </a>
         </li>
         <li>
-          <a v-link="#">
+          <a v-link="{ name: 'collections' }">
             <div class="text">训练</div>
             <div class="icon icon-unflod"></div>
             <div class="num">11</div>

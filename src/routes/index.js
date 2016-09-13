@@ -58,6 +58,14 @@ export function configRouter (router) {
       }
     },
 
+    // 我的收藏
+    '/collections/:type': {
+      name: 'collections',
+      component: function (resolve) {
+        require(['../components/views/Collections/index.vue'], resolve);
+      }
+    },
+
     // 404
     '/404': {
       name: 'notFound',
