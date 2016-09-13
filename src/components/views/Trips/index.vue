@@ -18,7 +18,7 @@
       ListTopBar
     },
     attached () {
-      document.title = 'Trips';
+      document.title = '路线';
     }
   };
 </script>
