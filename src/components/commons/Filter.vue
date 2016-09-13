@@ -68,6 +68,21 @@
       };
     },
 
+    // 设置 filterKey, 若 route.query 没有的话，设置每一项默认值都为 0
+    activate: function (done) {
+      console.log('activate function');
+      console.log(Object.keys(this.filterKey).length);
+      let temp = {};
+      if (Object.keys(this.filterKey).length === 0) {
+        for (var data of this.datas) {
+          let {key} = data;
+          temp[key] = 0;
+        };
+      };
+      this.filterKey = temp;
+      done();
+    },
+
     methods: {
       showFilters () {
         this.showFilter = !this.showFilter;
