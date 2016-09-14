@@ -3,16 +3,31 @@
     <div class="title">
       {{ title }}
     </div>
+    <filter :callback="handleFilter" :filter-key="$route.query"></filter>
   </div>
 </template>
 
 <script>
+  import Filter from './Filter';
+
   export default {
+    components: {
+      Filter
+    },
     props: {
       title: {
         type: String,
         required: true,
         default: {}
+      }
+    },
+    methods: {
+      handleFilter (query) {
+        this.$route.router.go({
+          name: this.$route.name,
+          query: query
+        });
+        // TODO: 获取数据
       }
     }
   };
@@ -30,6 +45,9 @@
       font-size: $font-size-h3;
       color: $color-text;
       line-height: px2rem(35px);
+    }
+    .filter {
+      float: right;
     }
   }
 </style>

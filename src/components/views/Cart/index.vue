@@ -1,7 +1,7 @@
 <template>
   <div class="view-cart">
     Cart
-      <filter :callback="handleFilter" :filter-key="filterKey" :topic="topic" :datas="filterDatas"></filter>
+      <filter :callback="handleFilter" :filter-key="filterKey"></filter>
   </div>
 </template>
 
@@ -16,20 +16,113 @@
       document.title = 'cart';
     },
     data () {
-      console.log(this.$route.query);
       return {
         topic: this.$route.name,
         filterKey: this.$route.query,
-        filterDatas: [{
-          'key': 'Category',
-          'display': '线路类型',
-          'choices': [
-              {'id': 0, 'display': '不限'},
-              {'id': 1, 'display': 'kayak独木舟'},
-              {'id': 2, 'display': 'canoe划艇'},
-              {'id': 3, 'display': 'sup桨板'}
-          ]
-        }]
+        filterDatas: [
+          {
+            'key': 'a',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'b',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'c',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'd',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'e',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'f',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'g',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'h',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          },
+          {
+            'key': 'i',
+            'display': '线路类型',
+            'choices': [
+                {'id': 0, 'display': '不限'},
+                {'id': 1, 'display': 'kayak独木舟'},
+                {'id': 2, 'display': 'canoe划艇'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'},
+                {'id': 3, 'display': 'sup桨板'}
+            ]
+          }
+        ]
       };
     },
 
