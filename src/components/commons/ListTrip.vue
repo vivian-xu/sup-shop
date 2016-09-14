@@ -1,9 +1,6 @@
 <template>
   <div class="list-trip">
-    <item-card-trip></item-card-trip>
-    <item-card-trip></item-card-trip>
-    <item-card-trip></item-card-trip>
-    <item-card-trip></item-card-trip>
+    <item-card-trip v-for="item in data" :data="item"></item-card-trip>
   </div>
 </template>
 
@@ -11,6 +8,12 @@
   import ItemCardTrip from './ItemCardTrip';
 
   export default {
+    props: {
+      data: {
+        type: Array,
+        defalut: []
+      }
+    },
     components: {
       ItemCardTrip
     }

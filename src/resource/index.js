@@ -2,19 +2,24 @@ import { dSuccess, dError, baseFunction } from './base';
 
 export { configResource } from './config';
 
-// 获取数据
-export function getCarousels (successCallback = dSuccess, errorCallback = dError) {
+// get trips list
+export function getListTrips (successCallback = dSuccess, errorCallback = dError) {
   baseFunction.bind(this)({
     successCallback,
     errorCallback,
     conf: {
-      url: 'data',
+      url: 'trips',
       method: 'GET'
     },
     parser: (results) => results.map((item) => (
       {
-        name: item.link_url,
-        src: item.image_url
+        id: item.id,
+        name: item.title,
+        cover: item.avatar_url,
+        start: item.start_at,
+        duration: item.duration,
+        availableCount: item.available_cnt,
+        price: item.price
       }
     ))
   });

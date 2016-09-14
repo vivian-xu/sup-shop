@@ -44,7 +44,7 @@
         if (this.status === '404' || this.status === '500') {
           return '貌似出了一点问题......';
         }
-        return '';
+        return '貌似出了一点问题......';
       }
     }
   };
@@ -55,8 +55,11 @@
 
   .view-status {
     width: 100%;
-    height: 100%;
-    position: relative;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    // height: 100%;
+    position: fixed;
     .inner {
       position: absolute;
       width: 100%;

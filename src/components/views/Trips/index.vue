@@ -1,8 +1,12 @@
 <template>
   <div class="view-trips" v-infinite-scroll="loadMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
-    <list-header></list-header>
-    <list-top-bar :title="'路线'"></list-top-bar>
-    <list-trip></list-trip>
+    <template v-if="listData">
+      <list-header></list-header>
+      <list-top-bar :title="'路线'"></list-top-bar>
+      <list-trip :data="listData"></list-trip>
+    </template>
+
+    <view-status v-if="!listData" :status="this.error || 'loading'"></view-status>
   </div>
 </template>
 
@@ -11,19 +15,35 @@
   import ListTrip from '../../commons/ListTrip';
   import ListTopBar from '../../commons/ListTopBar';
 
+  import ViewStatus from '../../commons/ViewStatus';
+
+  import { getListTrips } from '../../../resource';
+
   export default {
     data () {
       return {
-        busy: false
+        error: false,
+        busy: false,
+        listData: null
       };
     },
     components: {
       ListHeader,
       ListTrip,
-      ListTopBar
+      ListTopBar,
+      ViewStatus
     },
     attached () {
       document.title = '路线';
+
+      getListTrips.bind(this)(
+        (data) => {
+          this.listData = data;
+        },
+        () => {
+          this.error = true;
+        }
+      );
     },
     methods: {
       loadMore () {

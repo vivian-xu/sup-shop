@@ -13,7 +13,7 @@ module.exports = {
     port: 8080,
     mockPort: 8888,
     proxyTable: {
-      '/api': 'localhost:8888'
+      '/api': 'http://localhost:8888'
     }
   }
 };
