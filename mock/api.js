@@ -18,7 +18,7 @@ router.get('/trips', function (req, res) {
         {"id": 2, "title": "菲律宾皮划艇体验", "start_at": "2016.11.01", "duration": "1 天", "location": "上海", "total_count": 20, "sell_count": 20, "available_cnt": 0, "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"}
       ]
     );
-  }, 500);
+  }, 1000);
 });
 
 router.get('/trainings', function (req, res) {
