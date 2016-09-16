@@ -1,14 +1,14 @@
 <template>
-  <div class="view-trips" v-infinite-scroll="loadMore()" infinite-scroll-disabled="!needLoad" infinite-scroll-distance="10">
+  <div class="view-trips" v-infinite-scroll="getData()" infinite-scroll-disabled="!needLoad" :infinite-scroll-distance="10">
 
-    <template v-if="listData">
-      <list-header></list-header>
-      <list-top-bar :title="'路线'"></list-top-bar>
+    <template v-if="listData && listData.length">
+      <list-header :handle-search="() => getData(true)"></list-header>
+      <list-top-bar :title="'路线'" :handle-filter="() => getData(true)"></list-top-bar>
       <list-trip :data="listData"></list-trip>
       <loading-bar :load-all="loadAll"></loading-bar>
     </template>
 
-    <view-status v-if="!listData" :status="this.error || 'loading'"></view-status>
+    <view-status v-else :status="status"></view-status>
 
   </div>
 </template>
@@ -29,7 +29,7 @@
         needLoad: true,
         loadAll: false,
         listData: null,
-        limit: 2,
+        limit: 9,
         offset: 0
       };
     },
@@ -44,8 +44,17 @@
       document.title = '路线';
       this.getData();
     },
+    computed: {
+      status: function () {
+        if (this.listData && this.listData.length === 0) {
+          return 'empty';
+        }
+        return this.error || 'loading';
+      }
+    },
     methods: {
-      getData () {
+      getData (reset) {
+        reset && this.reset();
         this.needLoad = false;
         getListTrips.bind(this)(
           (data) => {
@@ -54,19 +63,27 @@
             } else {
               this.loadAll = true;
             }
-            if (this.listData === null) {
+            if (this.listData === null || reset) {
               this.listData = data;
             } else {
               this.listData = this.listData.concat(data);
             }
+            this.offset = this.offset + this.limit;
           },
           () => {
             this.error = true;
+          },
+          {
+            query: this.$route.query,
+            offset: this.offset,
+            limit: this.limit
           }
         );
       },
-      loadMore () {
-        this.getData();
+      reset () {
+        this.error = false;
+        this.loadAll = false;
+        this.offset = 0;
       }
     }
   };

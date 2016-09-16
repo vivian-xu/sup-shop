@@ -3,7 +3,7 @@
     <div class="title">
       {{ title }}
     </div>
-    <filter :callback="handleFilter" :filter-key="$route.query"></filter>
+    <filter :callback="handleDoFilter" :filter-key="$route.query"></filter>
   </div>
 </template>
 
@@ -18,16 +18,19 @@
       title: {
         type: String,
         required: true,
-        default: {}
+        default: ''
+      },
+      handleFilter: {
+        type: Function
       }
     },
     methods: {
-      handleFilter (query) {
+      handleDoFilter (query) {
         this.$route.router.go({
           name: this.$route.name,
           query: query
         });
-        // TODO: 获取数据
+        this.handleFilter && this.handleFilter(query);
       }
     }
   };

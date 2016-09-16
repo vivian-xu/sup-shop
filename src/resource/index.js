@@ -3,13 +3,21 @@ import { dSuccess, dError, baseFunction } from './base';
 export { configResource } from './config';
 
 // get trips list
-export function getListTrips (successCallback = dSuccess, errorCallback = dError) {
+export function getListTrips (successCallback = dSuccess, errorCallback = dError, option = {
+  query: {},
+  offset: 0,
+  limit: 10
+}) {
   baseFunction.bind(this)({
     successCallback,
     errorCallback,
     conf: {
       url: 'trips',
-      method: 'GET'
+      method: 'GET',
+      data: Object.assign({}, option.query, {
+        offset: option.offset,
+        limit: option.limit
+      })
     },
     parser: (results) => results.map((item) => (
       {

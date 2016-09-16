@@ -1,6 +1,6 @@
 <template>
   <header class="list-header" :style="{ backgroundImage: 'url(http://fakeimg.pl/2000x800/ff6a6f/fff/)' }">
-    <search-bar :callback="handleSearch"></search-bar>
+    <search-bar :callback="handleDoSearch"></search-bar>
     <div class="inner">
       <h1 class="title"><span>您好！</span><span>用户名称</span></h1>
       <p class="d">欢迎来到指向皮划艇</p>
@@ -15,9 +15,24 @@
     components: {
       SearchBar
     },
+    props: {
+      handleSearch: {
+        type: Function
+      }
+    },
     methods: {
-      handleSearch (value) {
-        console.log(value);
+      handleDoSearch (value) {
+        if (!value) {
+          return false;
+        }
+        this.$route.router.go({
+          name: this.$route.name,
+          query: {
+            keyword: value
+          }
+        });
+        this.handleSearch && this.handleSearch();
+        return true;
       }
     }
   };
