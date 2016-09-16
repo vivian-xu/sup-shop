@@ -42,7 +42,11 @@
     },
     attached () {
       document.title = '路线';
+      this.needLoad = true;
       this.getData();
+    },
+    detached () {
+      this.needLoad = false;
     },
     computed: {
       status: function () {

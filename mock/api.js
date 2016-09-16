@@ -25,6 +25,14 @@ router.get('/trainings', function (req, res) {
   res.json(
     [
       {"id": 1, "title": "SupPolo 大师训练课程", "mode": "室外授课", "start_at": "2016.09.27", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 8, "available_cnt": 12, "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "桨板球新手入门", "mode": "团体授课", "start_at": "2016.11.01", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 20, "available_cnt": 0, "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
+      {"id": 1, "title": "SupPolo 大师训练课程", "mode": "室外授课", "start_at": "2016.09.27", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 8, "available_cnt": 12, "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "桨板球新手入门", "mode": "团体授课", "start_at": "2016.11.01", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 20, "available_cnt": 0, "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
+      {"id": 1, "title": "SupPolo 大师训练课程", "mode": "室外授课", "start_at": "2016.09.27", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 8, "available_cnt": 12, "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "桨板球新手入门", "mode": "团体授课", "start_at": "2016.11.01", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 20, "available_cnt": 0, "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
+      {"id": 1, "title": "SupPolo 大师训练课程", "mode": "室外授课", "start_at": "2016.09.27", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 8, "available_cnt": 12, "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "桨板球新手入门", "mode": "团体授课", "start_at": "2016.11.01", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 20, "available_cnt": 0, "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
+      {"id": 1, "title": "SupPolo 大师训练课程", "mode": "室外授课", "start_at": "2016.09.27", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 8, "available_cnt": 12, "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
       {"id": 2, "title": "桨板球新手入门", "mode": "团体授课", "start_at": "2016.11.01", "lessons_number": 20, "location": "上海", "total_count": 20, "sell_count": 20, "available_cnt": 0, "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"}
     ]
   );
@@ -33,6 +41,14 @@ router.get('/trainings', function (req, res) {
 router.get('/equipments', function (req, res) {
   res.json(
     [
+      {"id": 1, "title": "Nalsh 护腕", "colors": ["red", "yellow", "green"], "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "Wallaman S-I 桨板", "colors": ["red"], "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
+      {"id": 1, "title": "Nalsh 护腕", "colors": ["red", "yellow", "green"], "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "Wallaman S-I 桨板", "colors": ["red"], "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
+      {"id": 1, "title": "Nalsh 护腕", "colors": ["red", "yellow", "green"], "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "Wallaman S-I 桨板", "colors": ["red"], "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
+      {"id": 1, "title": "Nalsh 护腕", "colors": ["red", "yellow", "green"], "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
+      {"id": 2, "title": "Wallaman S-I 桨板", "colors": ["red"], "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"},
       {"id": 1, "title": "Nalsh 护腕", "colors": ["red", "yellow", "green"], "price": 1980, "avatar_url": "/media/trips/avatar/ac8dc3e99d3644af9b974afd5006d06a.png"},
       {"id": 2, "title": "Wallaman S-I 桨板", "colors": ["red"], "price": 2330, "avatar_url": "/media/trips/avatar/ee8dc3e99d3644af9b974afd5006d22b.png"}
     ]
