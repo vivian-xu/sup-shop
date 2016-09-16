@@ -58,8 +58,12 @@
     },
     methods: {
       getData (reset) {
+        if (!this._isAttached) {
+          return false;
+        }
         reset && this.reset();
         this.needLoad = false;
+
         getListTrips.bind(this)(
           (data) => {
             if (this.limit <= data.length) {
