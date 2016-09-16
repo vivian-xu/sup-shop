@@ -93,3 +93,16 @@ export function getListTrainings (successCallback = dSuccess, errorCallback = dE
     ))
   });
 }
+
+export function getFilterKey (successCallback = dSuccess, errorCallback = dError, option = {
+  name: 'trips'
+}) {
+  baseFunction.bind(this)({
+    successCallback,
+    errorCallback,
+    conf: {
+      url: `filters/${option.name}`,
+      method: 'GET'
+    }
+  });
+}

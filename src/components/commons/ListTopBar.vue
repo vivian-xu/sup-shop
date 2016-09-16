@@ -3,7 +3,7 @@
     <div class="title">
       {{ title }}
     </div>
-    <filter :callback="handleDoFilter" :filter-key="$route.query"></filter>
+    <filter :callback="handleDoFilter" :filter-key="$route.query" :datas="filterData"></filter>
   </div>
 </template>
 
@@ -22,6 +22,9 @@
       },
       handleFilter: {
         type: Function
+      },
+      filterData: {
+        type: Array
       }
     },
     methods: {

@@ -3,7 +3,7 @@
 
     <template v-if="listData && listData.length">
       <list-header :handle-search="() => getData(true)"></list-header>
-      <list-top-bar :title="'培训'" :handle-filter="() => getData(true)"></list-top-bar>
+      <list-top-bar :title="'培训'" :filter-data="filterData" :handle-filter="() => getData(true)"></list-top-bar>
       <list-training :data="listData"></list-training>
       <loading-bar :load-all="loadAll"></loading-bar>
     </template>
@@ -20,7 +20,7 @@
   import LoadingBar from '../../commons/LoadingBar';
   import ViewStatus from '../../commons/ViewStatus';
 
-  import { getListTrainings } from '../../../resource';
+  import { getListTrainings, getFilterKey } from '../../../resource';
 
   export default {
     data () {
@@ -30,7 +30,8 @@
         loadAll: false,
         listData: null,
         limit: 9,
-        offset: 0
+        offset: 0,
+        filterData: []
       };
     },
     components: {
@@ -45,6 +46,9 @@
       this.needLoad = true;
       this.getData();
     },
+    ready () {
+      this.getFilterKeys();
+    },
     detached () {
       this.needLoad = false;
     },
@@ -57,6 +61,17 @@
       }
     },
     methods: {
+      getFilterKeys () {
+        getFilterKey.bind(this)(
+          (data) => {
+            this.filterData = data;
+          },
+          () => {},
+          {
+            name: this.$route.name
+          }
+        );
+      },
       getData (reset) {
         if (!this._isAttached) {
           return false;
