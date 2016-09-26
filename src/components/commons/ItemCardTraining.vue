@@ -1,19 +1,19 @@
 <template>
-  <div class="item-card-training" v-link="{ name: 'trainingDetail', params: { id: '11' } }">
-    <div class="cover" v-lazy:background-image="'http://qiutc.me/img/qtdc_avatar.jpg'"></div>
-    <div class="name">桨板瑜伽5日培训－巴厘岛</div>
+  <div class="item-card-training" v-link="{ name: 'trainingDetail', params: { id: data.id } }">
+    <div class="cover" v-lazy:background-image="data.cover"></div>
+    <div class="name">{{ data.name }}</div>
     <div class="tag">
       <span class="icon icon-outdoor"></span>
-      <span class="text">户外授课</span>
+      <span class="text">{{ data.mode }}</span>
     </div>
     <div class="box-info clearfix">
       <div class="details clearfix">
-        <div class="d-item start-date"><span class="icon icon-date"></span>2016.8.10</div>
-        <div class="d-item duration"><span class="icon icon-time"></span>20 课时</div>
-        <div class="d-item available-count"><span class="icon icon-hot"></span>6 人购买</div>
+        <div class="d-item start-date"><span class="icon icon-date"></span>{{ data.start }}</div>
+        <div class="d-item duration"><span class="icon icon-time"></span>{{ data.duration }} 课时</div>
+        <div class="d-item available-count"><span class="icon icon-hot"></span>{{ data.sellCount }} 人购买</div>
       </div>
       <div class="price">
-        ¥ 1980
+        ¥ {{ data.price }}
       </div>
     </div>
   </div>
@@ -21,6 +21,12 @@
 
 <script>
   export default {
+    props: {
+      data: {
+        type: Object,
+        defalut: {}
+      }
+    }
   };
 </script>
 

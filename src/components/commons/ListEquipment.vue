@@ -1,24 +1,6 @@
 <template>
   <div class="list-equipment clearfix">
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
-    <item-card-equipment></item-card-equipment>
+    <item-card-equipment v-for="item in data" :data="item"></item-card-equipment>
   </div>
 </template>
 
@@ -26,6 +8,12 @@
   import ItemCardEquipment from './ItemCardEquipment';
 
   export default {
+    props: {
+      data: {
+        type: Array,
+        defalut: []
+      }
+    },
     components: {
       ItemCardEquipment
     }

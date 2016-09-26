@@ -1,9 +1,6 @@
 <template>
   <div class="list-training">
-    <item-card-training></item-card-training>
-    <item-card-training></item-card-training>
-    <item-card-training></item-card-training>
-    <item-card-training></item-card-training>
+    <item-card-training v-for="item in data" :data="item"></item-card-training>
   </div>
 </template>
 
@@ -11,6 +8,12 @@
   import ItemCardTraining from './ItemCardTraining';
 
   export default {
+    props: {
+      data: {
+        type: Array,
+        defalut: []
+      }
+    },
     components: {
       ItemCardTraining
     }

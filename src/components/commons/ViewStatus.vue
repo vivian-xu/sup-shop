@@ -16,8 +16,6 @@
     },
     props: {
       status: {
-        type: String,
-        required: true,
         default: 'loading'
       }
     },

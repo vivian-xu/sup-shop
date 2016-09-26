@@ -1,20 +1,27 @@
 <template>
-  <div class="item-card-equipment" v-link="{ name: 'equipmentDetail', params: { id: '11' } }">
+  <div class="item-card-equipment" v-link="{ name: 'equipmentDetail', params: { id: data.id } }">
     <div class="inner">
-      <div class="cover" v-lazy:background-image="'http://qiutc.me/img/qtdc_avatar.jpg'"></div>
+      <div class="cover" v-lazy:background-image="data.cover"></div>
       <div class="box-info">
-        <div class="name">Naish 护腕</div>
+        <div class="name">{{ data.name }}</div>
         <div class="price">
-          ¥ 59
+          ¥ {{ data.price }}
         </div>
-        <div class="tag-color" :style="{ background: '#000' }"></div>
+        <div class="tag-color" :style="{ background: data.color }"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {};
+  export default {
+    props: {
+      data: {
+        type: Object,
+        defalut: {}
+      }
+    }
+  };
 </script>
 
 <style lang="scss" scoped>
