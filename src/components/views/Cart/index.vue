@@ -2,15 +2,18 @@
   <div class="view-cart">
     Cart
       <filter :callback="handleFilter" :filter-key="filterKey"></filter>
+      <comment-list min="3" max="99" :datas="commentsDatas"></comment-list>
   </div>
 </template>
 
 <script>
   import Filter from '../../commons/Filter';
+  import CommentList from '../../commons/CommentList';
 
   export default {
     components: {
-      Filter
+      Filter,
+      CommentList
     },
     attached () {
       document.title = 'cart';
@@ -120,6 +123,64 @@
                 {'id': 3, 'display': 'sup桨板'},
                 {'id': 3, 'display': 'sup桨板'},
                 {'id': 3, 'display': 'sup桨板'}
+            ]
+          }
+        ],
+        commentsDatas: [
+          {
+            'id': 1,
+            'user_name': '我是游客',
+            'avatar_url': 'http://qiutc.me/img/qtc_avatar.jpg',
+            'content': '很棒的一次活动',
+            'photos': [
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              },
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              }
+            ]
+          },
+          {
+            'id': 2,
+            'user_name': '我是游客2',
+            'avatar_url': 'http://qiutc.me/img/qtc_avatar.jpg',
+            'content': '玩的非常开心，安排的非常赞！玩的非常开心，安排的非常赞！玩的非常开心，安排的非常赞！玩的非常开心，安排的非常赞！',
+            'photos': [
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              },
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              }
+            ]
+          },
+          {
+            'id': 3,
+            'user_name': '我是游客3',
+            'avatar_url': 'http://qiutc.me/img/qtc_avatar.jpg',
+            'content': '很棒的一次活动',
+            'photos': [
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              },
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              }
+            ]
+          },
+          {
+            'id': 4,
+            'user_name': '我是游客4',
+            'avatar_url': 'http://qiutc.me/img/qtc_avatar.jpg',
+            'content': '很棒的一次活动',
+            'photos': [
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              },
+              {
+                'url': 'http://qiutc.me/img/qtc_avatar.jpg'
+              }
             ]
           }
         ]
